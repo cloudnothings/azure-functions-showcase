@@ -49,8 +49,11 @@ const Home: NextPage = () => {
           </p>
           <button className="text-2xl text-white"
             onClick={handleClick}>
-            Click me for feedback
+            {`Click me for a cat fact`}
           </button>
+          {response.data && (
+            <p className="text-2xl text-white">{response.data.fact}</p>
+          )}
         </div>
       </main>
     </>
