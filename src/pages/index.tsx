@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
   const response = trpc.cat.getFact.useQuery();
   const handleClick = async () => {
-    console.log(response.data.fact)
+    response.refetch();
   };
   return (
     <>
