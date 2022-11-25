@@ -6,7 +6,9 @@ import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-
+  const handleClick = async () => {
+    console.log('hello')
+  };
   return (
     <>
       <Head>
@@ -44,6 +46,9 @@ const Home: NextPage = () => {
           <p className="text-2xl text-white">
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
+          <button className="text-2xl text-white"
+            onClick={handleClick}
+          >Click me for feedback</button>
         </div>
       </main>
     </>
