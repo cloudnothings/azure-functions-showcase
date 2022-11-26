@@ -17,6 +17,7 @@ const Home: NextPage = () => {
       {
         onSuccess: (data) => {
           console.log("data", data);
+          setTo("");
         },
       }
     );
