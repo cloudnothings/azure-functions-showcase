@@ -1,18 +1,25 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
   const mutator = trpc.twilio.schedule.useMutation();
+  const [to, setTo] = useState("");
+
   const handleClick = async () => {
-    await mutator.mutateAsync(undefined, {
-      onSuccess: (data) => {
-        console.log("data", data);
+    await mutator.mutateAsync(
+      {
+        to: to,
       },
-    });
+      {
+        onSuccess: (data) => {
+          console.log("data", data);
+        },
+      }
+    );
   };
   return (
     <>
@@ -35,6 +42,8 @@ const Home: NextPage = () => {
               <input
                 className="border-b border-white/50 bg-transparent focus:border-white/100 focus:outline-none"
                 type="text"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
                 placeholder="e.g. +1 555-555-5555"
               />
             </div>
