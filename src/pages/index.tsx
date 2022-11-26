@@ -1,8 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
