@@ -6,7 +6,6 @@ import { trpc } from "../utils/trpc";
 const Home: NextPage = () => {
   const mutator = trpc.twilio.schedule.useMutation();
   const [to, setTo] = useState("");
-  const [hidden, setHidden] = useState(true);
 
   const handleClick = async () => {
     await mutator.mutateAsync(
@@ -20,14 +19,11 @@ const Home: NextPage = () => {
         },
       }
     );
-    {
-      setHidden(false);
-    }
   };
   return (
     <>
       <Head>
-        <title>catfactsnow</title>
+        <title>catfacts now</title>
         <meta name="description" content="cat facts text app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
