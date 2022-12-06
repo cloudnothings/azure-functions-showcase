@@ -39,11 +39,11 @@ const Home: NextPage = () => {
             </h3>
             <div className="text-center text-lg">
               <input
-                className="border-b border-white/50 bg-transparent focus:border-white/100 focus:outline-none"
+                className="border-b border-white/50 bg-transparent text-center focus:border-white/100 focus:outline-none"
                 type="text"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
-                placeholder="e.g. +1 555-555-5555"
+                placeholder="555-555-5555"
               />
             </div>
           </div>
